@@ -22,7 +22,7 @@ app.post('/screenshot', async (req, res) => {
 
 app.use('/screenshots', express.static('/tmp'));
 
-
-app.listen(3001, () => {
-    console.log('App running at http://localhost:3001');
+const PORT = process.env.PORT || 8080;
+app.listen(PORT, () => {
+    console.log('App running');
 });
