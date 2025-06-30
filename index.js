@@ -20,7 +20,8 @@ app.post('/screenshot', async (req, res) => {
     }
 });
 
-app.use('/screenshots', express.static(path.join(__dirname, 'screenshots')));
+app.use('/screenshots', express.static('/tmp'));
+
 
 app.listen(3001, () => {
     console.log('App running at http://localhost:3001');
