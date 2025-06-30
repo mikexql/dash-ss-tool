@@ -12,7 +12,7 @@ module.exports = async function takeScreenshot(url) {
             '--disable-backgrounding-occluded-windows',
         ],});
     const page = await browser.newPage();
-    await page.goto(url, { waitUntil: 'load' });
+    await page.goto(url);
 
     const filename = `screenshot-${Date.now()}.png`;
     const filepath = path.join('/tmp', filename); // << use /tmp on Render
