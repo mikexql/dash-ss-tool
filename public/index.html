@@ -17,7 +17,11 @@
            placeholder="https://site1.com, https://site2.com" />
 
     <button onclick="capture()"
-            class="bg-blue-500 text-white px-6 py-2 rounded-md hover:bg-blue-600 transition duration-200 shadow">
+            class="flex items-center rounded-md border border-slate-300 py-2 px-4 text-center text-sm transition-all shadow-sm hover:shadow-lg text-slate-600 hover:text-white hover:bg-blue-800 hover:border-blue-800 focus:text-white focus:bg-blue-800 focus:border-blue-800 active:border-blue-800 active:text-white active:bg-blue-800 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none" type="button">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 w-4 h-4 mr-1.5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6.827 6.175A2.31 2.31 0 0 1 5.186 7.23c-.38.054-.757.112-1.134.175C2.999 7.58 2.25 8.507 2.25 9.574V18a2.25 2.25 0 0 0 2.25 2.25h15A2.25 2.25 0 0 0 21.75 18V9.574c0-1.067-.75-1.994-1.802-2.169a47.865 47.865 0 0 0-1.134-.175 2.31 2.31 0 0 1-1.64-1.055l-.822-1.316a2.192 2.192 0 0 0-1.736-1.039 48.774 48.774 0 0 0-5.232 0 2.192 2.192 0 0 0-1.736 1.039l-.821 1.316Z" />
+            <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 12.75a4.5 4.5 0 1 1-9 0 4.5 4.5 0 0 1 9 0ZM18.75 10.5h.008v.008h-.008V10.5Z" />
+        </svg>
         Capture Screenshots
     </button>
 
@@ -25,7 +29,10 @@
 
     <button id="zipBtn"
             onclick="downloadZip()"
-            class="hidden mt-4 bg-green-500 text-white px-6 py-2 rounded hover:bg-green-600 transition">
+            class="flex items-center hidden rounded-md border bg-green-500 border-green-500 py-2 px-4 text-center text-sm transition-all shadow-sm hover:shadow-lg text-white hover:text-white hover:bg-blue-800 hover:border-green-600 focus:text-white focus:bg-green-600 focus:border-green-600 active:border-green-600 active:text-white active:bg-green-600 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 w-4 h-4 mr-1.5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="m9 13.5 3 3m0 0 3-3m-3 3v-6m1.06-4.19-2.12-2.12a1.5 1.5 0 0 0-1.061-.44H4.5A2.25 2.25 0 0 0 2.25 6v12a2.25 2.25 0 0 0 2.25 2.25h15A2.25 2.25 0 0 0 21.75 18V9a2.25 2.25 0 0 0-2.25-2.25h-5.379a1.5 1.5 0 0 1-1.06-.44Z" />
+        </svg>
         Download All as ZIP
     </button>
 
@@ -69,11 +76,11 @@
                 btnGroup.className = "flex gap-4";
 
                 const copyBtn = document.createElement("button");
-                copyBtn.textContent = "📋 Copy URL";
-                copyBtn.className = "text-sm bg-gray-200 hover:bg-gray-300 px-3 py-1 rounded";
+                copyBtn.textContent = "Copy URL";
+                copyBtn.className = "rounded-md bg-blue-600 py-2 px-4 border border-transparent text-center text-sm text-white transition-all shadow-md hover:shadow-lg focus:bg-blue-700 focus:shadow-none active:bg-blue-700 hover:bg-blue-700 active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none ml-2";
                 copyBtn.onclick = () => {
                     navigator.clipboard.writeText(location.origin + data.path);
-                    copyBtn.textContent = "✅ Copied!";
+                    copyBtn.textContent = "Copied!";
                     setTimeout(() => copyBtn.textContent = "Copy URL", 1500);
                 };
 
@@ -81,7 +88,7 @@
                 downloadBtn.textContent = "Download";
                 downloadBtn.href = data.path;
                 downloadBtn.download = data.path.split("/").pop();
-                downloadBtn.className = "text-sm bg-blue-200 hover:bg-blue-300 px-3 py-1 rounded";
+                downloadBtn.className = "rounded-md bg-green-600 py-2 px-4 border border-transparent text-center text-sm text-white transition-all shadow-md hover:shadow-lg focus:bg-green-700 focus:shadow-none active:bg-green-700 hover:bg-green-700 active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none ml-2";
 
                 btnGroup.append(copyBtn, downloadBtn);
                 container.append(img, btnGroup);
